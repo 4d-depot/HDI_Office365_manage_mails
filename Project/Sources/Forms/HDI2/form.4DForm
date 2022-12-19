@@ -1,0 +1,512 @@
+{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"menuBar": "Menu Bar #1",
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "842pt",
+		"paperHeight": "595pt"
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Tab Control": {
+					"type": "tab",
+					"top": 22,
+					"left": 23,
+					"width": 1027,
+					"height": 856,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "_TabTitles",
+					"dataSourceTypeHint": "arrayText",
+					"action": "gotoPage",
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Tab Control.4dm"
+				},
+				"FolderList": {
+					"type": "list",
+					"left": 29,
+					"top": 91,
+					"width": 287,
+					"height": 768,
+					"events": [
+						"onDrop",
+						"onSelectionChange"
+					],
+					"method": "ObjectMethods/FolderList.4dm",
+					"dataSource": "Form:C1466.folders.listRef",
+					"dropping": "automatic"
+				},
+				"Connection_bt": {
+					"type": "button",
+					"text": "Connection",
+					"top": 51,
+					"left": 756,
+					"width": 263,
+					"height": 33,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Connection_bt.4dm",
+					"style": "regular",
+					"fontWeight": "bold",
+					"fontSize": 14,
+					"stroke": "#006400"
+				},
+				"Spinner1": {
+					"type": "spinner",
+					"left": 39,
+					"top": 356,
+					"width": 248,
+					"height": 182,
+					"visibility": "hidden",
+					"dataSource": "Form:C1466.spinner"
+				}
+			}
+		},
+		{
+			"objects": {
+				"information": {
+					"type": "input",
+					"top": 119,
+					"left": 51,
+					"width": 966,
+					"height": 720,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[0].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"List Box": {
+					"type": "listbox",
+					"left": 345,
+					"top": 305,
+					"width": 692,
+					"height": 409,
+					"events": [
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.mails",
+					"method": "ObjectMethods/List Box.4dm",
+					"selectionMode": "single",
+					"listboxType": "collection",
+					"currentItemSource": "Form:C1466.mail",
+					"currentItemPositionSource": "",
+					"dragging": "custom",
+					"columns": [
+						{
+							"header": {
+								"name": "Header4",
+								"text": "Date"
+							},
+							"name": "Column4",
+							"dataSource": "Date:C102(This:C1470.receivedDateTime)",
+							"footer": {
+								"name": "Footer4"
+							},
+							"width": 78,
+							"enterable": false,
+							"dataSourceTypeHint": "date"
+						},
+						{
+							"header": {
+								"text": "From",
+								"name": "Header1"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 194,
+							"dataSource": "This:C1470.from.emailAddress.address",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header2",
+								"text": "Subject"
+							},
+							"name": "Column2",
+							"width": 592,
+							"footer": {
+								"name": "Footer2"
+							},
+							"dataSource": "This:C1470.subject",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header3",
+								"text": "id"
+							},
+							"name": "Column3",
+							"footer": {
+								"name": "Footer3"
+							},
+							"dataSourceTypeHint": "number",
+							"dataSource": "This:C1470.id",
+							"width": 58,
+							"enterable": false
+						}
+					]
+				},
+				"Text": {
+					"type": "text",
+					"text": "Number of displayed emails:",
+					"top": 62,
+					"left": 50,
+					"width": 210,
+					"height": 15
+				},
+				"Input1": {
+					"type": "input",
+					"left": 250,
+					"top": 61,
+					"width": 66,
+					"height": 16,
+					"dataSourceTypeHint": "number",
+					"dataSource": "Form:C1466.numberMails",
+					"contextMenu": "none",
+					"max": 1000,
+					"min": 1
+				},
+				"refresh_bt": {
+					"type": "button",
+					"text": "Refresh email list",
+					"top": 58,
+					"left": 345,
+					"width": 151,
+					"height": 23,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/refresh_bt.4dm"
+				},
+				"Spinner": {
+					"type": "spinner",
+					"left": 548,
+					"top": 423,
+					"width": 248,
+					"height": 182,
+					"visibility": "hidden",
+					"dataSource": "Form:C1466.spinner"
+				},
+				"MoveRadio": {
+					"type": "radio",
+					"text": "Move",
+					"top": 255,
+					"left": 345,
+					"width": 133,
+					"height": 22,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Not:C34(Form:C1466.copy)",
+					"method": "ObjectMethods/MoveRadio.4dm",
+					"fontSize": 16
+				},
+				"CopyRadio": {
+					"type": "radio",
+					"text": "Copy",
+					"top": 225,
+					"left": 345,
+					"width": 133,
+					"height": 27,
+					"events": [
+						"onClick"
+					],
+					"dataSource": "Form:C1466.copy",
+					"method": "ObjectMethods/CopyRadio.4dm",
+					"fontSize": 16
+				},
+				"Remove_bt": {
+					"type": "button",
+					"text": "Delete",
+					"top": 240,
+					"left": 881,
+					"width": 156,
+					"height": 37,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Remove_bt.4dm"
+				},
+				"information2": {
+					"type": "input",
+					"top": 91,
+					"left": 345,
+					"width": 692,
+					"height": 112,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[1].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"Variable9": {
+					"type": "input",
+					"top": 287,
+					"left": 477,
+					"width": 547,
+					"height": 16,
+					"dataSource": "Form:C1466.draft.subject",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				},
+				"Texte10": {
+					"type": "text",
+					"top": 287,
+					"left": 337,
+					"width": 138,
+					"height": 15,
+					"text": "Subject:"
+				},
+				"Texte13": {
+					"type": "text",
+					"top": 172,
+					"left": 337,
+					"width": 221,
+					"height": 25,
+					"stroke": "#808080",
+					"fontFamily": "Segoe UI",
+					"fontSize": 18,
+					"fontWeight": "bold",
+					"text": "Draft message"
+				},
+				"Texte2": {
+					"type": "text",
+					"top": 356,
+					"left": 337,
+					"width": 138,
+					"height": 15,
+					"text": "HTML body:"
+				},
+				"Input2": {
+					"type": "input",
+					"left": 477,
+					"top": 356,
+					"width": 547,
+					"height": 208,
+					"dataSource": "Form:C1466.draft.htmlBody"
+				},
+				"draft_bt": {
+					"type": "button",
+					"top": 832,
+					"left": 768,
+					"width": 256,
+					"height": 20,
+					"text": "Append draft",
+					"focusable": false,
+					"method": "ObjectMethods/draft_bt.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"information1": {
+					"type": "input",
+					"top": 91,
+					"left": 337,
+					"width": 687,
+					"height": 80,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[2].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"List Box1": {
+					"type": "listbox",
+					"left": 336,
+					"top": 232,
+					"width": 692,
+					"height": 263,
+					"events": [
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.mails",
+					"method": "ObjectMethods/List Box1.4dm",
+					"selectionMode": "single",
+					"listboxType": "collection",
+					"currentItemSource": "Form:C1466.mailToReply",
+					"currentItemPositionSource": "",
+					"dragging": "none",
+					"columns": [
+						{
+							"header": {
+								"name": "Header5",
+								"text": "Date"
+							},
+							"name": "Column5",
+							"dataSource": "Date:C102(This:C1470.receivedDateTime)",
+							"footer": {
+								"name": "Footer5"
+							},
+							"width": 78,
+							"enterable": false,
+							"dataSourceTypeHint": "date"
+						},
+						{
+							"header": {
+								"text": "From",
+								"name": "Header6"
+							},
+							"name": "Column6",
+							"footer": {
+								"name": "Footer6"
+							},
+							"width": 194,
+							"dataSource": "This:C1470.from.emailAddress.address",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header7",
+								"text": "Subject"
+							},
+							"name": "Column7",
+							"width": 592,
+							"footer": {
+								"name": "Footer7"
+							},
+							"dataSource": "This:C1470.subject",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header8",
+								"text": "id"
+							},
+							"name": "Column8",
+							"footer": {
+								"name": "Footer8"
+							},
+							"dataSourceTypeHint": "number",
+							"dataSource": "This:C1470.id",
+							"width": 58,
+							"enterable": false
+						}
+					]
+				},
+				"Texte1": {
+					"type": "text",
+					"top": 523,
+					"left": 336,
+					"width": 138,
+					"height": 15,
+					"text": "Reply text:"
+				},
+				"Input3": {
+					"type": "input",
+					"left": 480,
+					"top": 527,
+					"width": 548,
+					"height": 208,
+					"dataSource": "Form:C1466.replyComment"
+				},
+				"reply_bt": {
+					"type": "button",
+					"text": "Reply",
+					"top": 755,
+					"left": 873,
+					"width": 155,
+					"height": 32,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/reply_bt.4dm"
+				},
+				"information3": {
+					"type": "input",
+					"top": 91,
+					"left": 337,
+					"width": 687,
+					"height": 80,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[3].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		}
+	],
+	"geometryStamp": 698,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}
